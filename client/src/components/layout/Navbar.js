@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
+import AuthContext from '../../context/auth/authContext';
+
 const Navbar = ({ title, icon }) => {
+	const authContext = useContext(AuthContext);
+	const { isAuthenticated } = authContext;
+
 	return (
 		<div className='navbar bg-primary'>
 			<h1>
@@ -15,9 +20,11 @@ const Navbar = ({ title, icon }) => {
 				<li>
 					<Link to='/about'>About</Link>
 				</li>
-				<li>
-					<Link to='/register'>Register</Link>
-				</li>
+				{!isAuthenticated && (
+					<li>
+						<Link to='/register'>Register</Link>
+					</li>
+				)}
 				<li>
 					<Link to='/login'>Login</Link>
 				</li>
