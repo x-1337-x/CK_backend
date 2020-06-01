@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const Navbar = ({ title, icon }) => {
 	};
 
 	const authLinks = (
-		<div>
+		<Fragment>
 			<li>Hello, {user && user.name}</li>
 			<li>
 				<a onClick={onLogout} href='#!'>
@@ -21,18 +21,21 @@ const Navbar = ({ title, icon }) => {
 					<span className='hide-sm'>Logout</span>
 				</a>
 			</li>
-		</div>
+		</Fragment>
 	);
 
 	const guestLinks = (
-		<div>
+		<Fragment>
+			<li>
+				<Link to='/about'>About</Link>
+			</li>
 			<li>
 				<Link to='/register'>Register</Link>
 			</li>
 			<li>
 				<Link to='/login'>Login</Link>
 			</li>
-		</div>
+		</Fragment>
 	);
 
 	return (
