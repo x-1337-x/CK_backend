@@ -15,7 +15,7 @@ const Home = () => {
 	}, []);
 
 	return (
-		<div classNmae='grid-2'>
+		<div className='grid-2'>
 			<div>
 				<ContactForm />
 			</div>
