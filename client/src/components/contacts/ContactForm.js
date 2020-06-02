@@ -34,8 +34,6 @@ function ContactForm() {
 
 		!current ? addContact(contact) : updateContact(contact);
 
-		addContact(contact);
-
 		setContact({
 			name: '',
 			email: '',
